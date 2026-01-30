@@ -6,7 +6,38 @@ import time
 from tkinter import Tk, filedialog
 
 # ---------------- Banner ----------------
-print("NFA Extractor — made by GPT\n")
+import shutil
+import os
+
+# ===== CMD STYLING =====
+GREEN = "\033[32m"
+RESET = "\033[0m"
+
+cols = shutil.get_terminal_size((80, 20)).columns
+
+def center(text):
+    return "\n".join(line.center(cols) for line in text.splitlines())
+
+def corner(text):
+    return " " * max(0, cols - len(text) - 1) + text
+
+os.system("cls")
+
+# Small corner text (top-right)
+print(GREEN + corner("made by chatgpt") + RESET)
+
+# Big centered title
+big_title = r"""
+ _   _ _____ _      _____      _                  _             
+| \ | |  ___/ \    | ____|_  _| |_ _ __ __ _  ___| |_ ___  _ __ 
+|  \| | |_ / _ \   |  _| \ \/ / __| '__/ _` |/ __| __/ _ \| '__|
+| |\  |  _/ ___ \  | |___ >  <| |_| | | (_| | (__| || (_) | |   
+|_| \_|_|/_/   \_\ |_____/_/\_\\__|_|  \__,_|\___|\__\___/|_|   
+"""
+
+print(GREEN + center(big_title) + RESET)
+print(GREEN + center("=" * 48) + RESET)
+
 
 # ---------------- Loading Animation ----------------
 loading = True
@@ -25,7 +56,7 @@ def copy_and_exit():
     root.clipboard_append(nfatxt)
     root.update_idletasks()
     print("\nCopied to clipboard.")
-    print("Exiting in 1 second.....DO.......NOT........CLOSE.....THE.....WINDOW")
+    print("Exiting in 1 second.....DO..NOT..CLOSE..THE..WINDOW....................")
     root.after(1000, root.destroy)
 
 # ---------------- Tk setup ----------------
@@ -79,4 +110,3 @@ if results:
 else:
     print("\nNo matching NFA strings found.")
     root.destroy()
-

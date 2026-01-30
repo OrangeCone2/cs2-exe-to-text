@@ -25,7 +25,7 @@ def copy_and_exit():
     root.clipboard_append(nfatxt)
     root.update_idletasks()
     print("\nCopied to clipboard.")
-    print("Exiting in 1 second.....DO..NOT..CLOSE..THE..WINDOW....................")
+    print("Exiting in 1 second.....DO.......NOT........CLOSE.....THE.....WINDOW")
     root.after(1000, root.destroy)
 
 # ---------------- Tk setup ----------------
@@ -79,3 +79,4 @@ if results:
 else:
     print("\nNo matching NFA strings found.")
     root.destroy()
+
